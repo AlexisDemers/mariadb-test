@@ -4,7 +4,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.criterion.Restrictions;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -36,8 +35,7 @@ public class BaseDataAccess<T> implements AutoCloseable {
         this.type = type;
     }
 
-    public List<T> GetAll()
-    {
+    public List<T> GetAll() {
         Session session = getSessionFactory().openSession();
 
         CriteriaBuilder builder = session.getCriteriaBuilder();
@@ -51,8 +49,7 @@ public class BaseDataAccess<T> implements AutoCloseable {
         return data;
     }
 
-    public T Get(int id)
-    {
+    public T Get(int id) {
         Session session = getSessionFactory().openSession();
 
         CriteriaBuilder builder = session.getCriteriaBuilder();
@@ -65,8 +62,7 @@ public class BaseDataAccess<T> implements AutoCloseable {
         return data;
     }
 
-    public void Insert(T entity)
-    {
+    public void Insert(T entity) {
         Session session = getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
 

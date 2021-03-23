@@ -1,6 +1,5 @@
 package ade.practice.mariadb;
 
-import ade.practice.mariadb.database.BaseDataAccess;
 import ade.practice.mariadb.database.EmployeeDataAccess;
 import ade.practice.mariadb.entities.Employee;
 import org.hibernate.Session;
@@ -47,11 +46,10 @@ public class Main {
             }
             System.out.println(" ## Done ##");
 
-        } while(input != "exit");
+        } while(!input.equals("exit"));
     }
 
-    private static void init()
-    {
+    private static void init() {
         Configuration conf = new Configuration();
         conf.configure();
         SessionFactory factory;
